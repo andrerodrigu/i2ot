@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8"/>
+	<ui:include src="Header.xhtml"></ui:include>
+	<title>I²oT</title>
+</h:head>
+<h:body>
+	<div align="center">
+	<h:form id="frmLogin" align="center">
+		<p:growl autoUpdate="true"/>
+		<p:messages showDetail="false" showSummary="false" 
+					autoUpdate="true" id="message"
+					errorStyle="color:red" infoStyle="color:green"
+					warnStyle="color:orange" fatalStyle="color:gray"/>
+	
+		<p:panelGrid columns="2" style="horizontal-align:center"> 			
+		<p:panelGrid columns="1">
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Usuário">
+            		<p:menuitem value="Cadastrar Usuário" icon="ui-icon-disk" action="#{userBean.FlameRegister}"/>
+            		<p:menuitem value="Atualizar Usuário" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Usuário" icon="ui-icon-search" action="#{userBean.FlameSearchUser}"/> 
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Fabricante">
+            		<p:menuitem value="Cadastrar Fabricante" icon="ui-icon-disk" action="#{manufacturerBean.FlameManufacturerRegistration}" />
+            		<p:menuitem value="Atualizar Fabricante" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Fabricante" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Fabricante" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Objeto Inteligente">
+            		<p:menuitem value="Cadastrar Objeto Inteligente" icon="ui-icon-disk" action="#{smartObjectBean.FlameSmartObjectRegister}"/>
+            		<p:menuitem value="Atualizar Objeto Inteligente" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Objeto Inteligente" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Objeto Inteligente" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Consignador">
+            		<p:menuitem value="Cadastrar Consignador" icon="ui-icon-disk" action="#{consignorBean.FlameConsignorRegister}"/>
+            		<p:menuitem value="Atualizar Consignador" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Consignador" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Consignador" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Infravermelho">
+            		<p:menuitem value="Cadastrar Infravermelho" icon="ui-icon-disk" action="#{infraredSensorBean.FlameInfraredSensorRegister}"/>
+            		<p:menuitem value="Atualizar Infravermelho" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Infravermelho" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Infravermelho" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Antenas">
+            		<p:menuitem value="Cadastrar Antena" icon="ui-icon-disk" action="#{antennasBean.FlameAntennaRegistry}"/>
+            		<p:menuitem value="Atualizar Antena" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Antena" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Antena" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="RFID">
+            		<p:menuitem value="Cadastrar RFID" icon="ui-icon-disk" action="#{rfidBean.FlameRfidRegistration}"/>
+            		<p:menuitem value="Atualizar RFID" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar RFID" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover RFID" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Nível 1">
+            		<p:menuitem value="Cadastrar Nível 1" icon="ui-icon-disk" action="#{level_1Bean.FlameLevel_1Register}" />
+            		<p:menuitem value="Atualizar Nível 1" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Nível 1" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Nível 1" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Nível 2">
+            		<p:menuitem value="Cadastrar Nível 2" icon="ui-icon-disk" action="#{level_2Bean.FlameLevel_2Register}"/>
+            		<p:menuitem value="Atualizar Nível 2" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Nível 2" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Nível 2" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Nível 3">
+            		<p:menuitem value="Cadastrar Nível 3" icon="ui-icon-disk" action="#{level_3Bean.FlameLevel_3Register}"/>
+            		<p:menuitem value="Atualizar Nível 3" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Nível 3" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Nível 3" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Nível 4">
+            		<p:menuitem value="Cadastrar Nível 4" icon="ui-icon-disk" action="#{level_4Bean.FlameLevel_4Register}"/>
+            		<p:menuitem value="Atualizar Nível 4" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Nível 4" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Nível 4" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+			<p:panelMenu style="width:250px">
+        		<p:submenu label="Nível 5">
+            		<p:menuitem value="Cadastrar Nível 5" icon="ui-icon-disk" action="#{level_5Bean.FlameLevel_5Register}"/>
+            		<p:menuitem value="Atualizar Nível 5" icon="ui-icon-arrowrefresh-1-w"/> 
+            		<p:menuitem value="Pesquisar Nível 5" icon="ui-icon-search"/> 
+            		<p:menuitem value="Remover Nível 5" icon="ui-icon-close"/>
+        		</p:submenu>
+    		</p:panelMenu>
+		</p:panelGrid>
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Usuário:"/>
+			<p:inputText value="#{userBean.user.userName}"/>
+			<p:outputLabel value="Senha:"/>
+			<p:password value="#{userBean.user.password}"/>
+			<p:outputLabel value=" "/>
+			<p:commandButton value="Entrar" action="#{userBean.Authentication}"/>
+			<p:outputLabel value=" "/>
+			<p:commandLink value="Esqueceu a senha?"/>
+		</p:panelGrid>
+		</p:panelGrid>
+	</h:form>
+	<ui:include src="Footer.xhtml"></ui:include>
+	</div>
+</h:body>
+</html>

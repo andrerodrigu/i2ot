@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	  <style type="text/css">
+	  .link{
+	  text-decoration:none;
+	  }
+	  </style>
+<h:head>
+	<meta charset="UTF-8"/>
+	<div>
+	<ui:include src="Header.xhtml"></ui:include>
+	</div>
+	<title>I²oT</title>
+</h:head>
+<h:body>
+	<h:form id="frmLogin" align="center">
+		<p:growl autoUpdate="true"/>
+		<p:messages showDetail="false" showSummary="true" 
+					autoUpdate="true" id="message"
+					errorStyle="color:red" infoStyle="color:green"
+					warnStyle="color:orange" fatalStyle="color:gray"/>
+	<br/>	
+	<br/>	
+	<br/>				
+	<div align="left">
+	<p:megaMenu orientation="#{megaMenuBean.orientation}" style="margin-top:20px">
+    <p:submenu label="Cadastrar" icon="ui-icon-disk">
+        <p:column>
+			<p:submenu label="Objetos">
+                <p:menuitem value="Objetos Inteligentes" action="#{smartObjectBean.FlameSmartObjectRegister}" />
+            </p:submenu>
+             <p:submenu label="Antenas">
+                <p:menuitem value="Registrar Antenas" action="#{antennasBean.FlameAntennaRegistry}" />
+            </p:submenu>
+             <p:submenu label="Sensores">
+                <p:menuitem value="Infravermelho" action="#{infraredSensorBean.FlameInfraredSensorRegister}" />
+            </p:submenu>
+             <p:submenu label="Fabricantes">
+                <p:menuitem value="Registrar Fabricantes" action="#{manufacturerBean.FlameManufacturerRegistration}"/>
+            </p:submenu>
+             <p:submenu label="Consignadores">
+                <p:menuitem value="Registrar Consignadores" action="#{consignorBean.FlameConsignorRegister}" />
+            </p:submenu>
+             <p:submenu label="Níveis">
+                <p:menuitem value="Nível 1" action="#{level_1Bean.FlameLevel_1Register}" />
+                <p:menuitem value="Nível 2" action="#{level_2Bean.FlameLevel_2Register}" />
+                <p:menuitem value="Nível 3" action="#{level_3Bean.FlameLevel_3Register}" />
+                <p:menuitem value="Nível 4" action="#{level_4Bean.FlameLevel_4Register}" />
+                <p:menuitem value="Nível 5" action="#{level_5Bean.FlameLevel_5Register}" />
+            </p:submenu>
+           	 <p:submenu label="RFID">
+                <p:menuitem value="Registrar RFID" action="#{rfidBean.FlameRfidRegistration}" />
+            </p:submenu>
+        </p:column>
+	</p:submenu>
+	<p:submenu label="Pesquisar" icon="ui-icon-search">	
+	<p:column>
+            <p:submenu label="Objetos Inteligentes">
+                <p:menuitem value="Por item" url="#" />
+                <p:menuitem value="Por categoria" url="#" />
+                <p:menuitem value="Por condição" url="#" />
+                <p:menuitem value="Por fabricante" url="#" />
+                <p:menuitem value="Por modelo" url="#" />
+                <p:menuitem value="Por data da compra" url="#" />
+                <p:menuitem value="Por preço" url="#" />
+            </p:submenu>
+             <p:submenu label="Antenas">
+                <p:menuitem value="Por número" url="#" />
+                <p:menuitem value="Por nome" url="#" />
+            </p:submenu>
+             <p:submenu label="Sensores">
+                <p:menuitem value="Por nome" url="#" />
+                <p:menuitem value="Por tempo de reação" url="#" />
+                <p:menuitem value="Por tempo de leitura" url="#" />
+            </p:submenu>
+             <p:submenu label="Fabricantes">
+                <p:menuitem value="Por nome" url="#" />
+                <p:menuitem value="Por CNPJ" url="#" />
+            </p:submenu>
+             <p:submenu label="Consignadores">
+                <p:menuitem value="Por nome" url="#" />
+                <p:menuitem value="Por CNPJ" url="#" />
+            </p:submenu>
+             <p:submenu label="Níveis">
+                <p:menuitem value="Nível 1" url="#" />
+                <p:menuitem value="Nível 2" url="#" />
+                <p:menuitem value="Nível 3" url="#" />
+                <p:menuitem value="Nível 4" url="#" />
+                <p:menuitem value="Nível 5" url="#" />
+            </p:submenu>
+           	 <p:submenu label="RFID">
+                <p:menuitem value="Por nome" url="#" />
+                <p:menuitem value="Por fabricante" url="#" />
+                <p:menuitem value="Por modelo" url="#" />
+            </p:submenu>
+    </p:column>
+	</p:submenu>		
+	<p:submenu label="Atualizar" icon="ui-icon-arrowrefresh-1-w">	
+	<p:column>
+            <p:submenu label="Objetos Inteligentes">
+                <p:menuitem value="Item" url="#" />
+                <p:menuitem value="Categoria" url="#" />
+                <p:menuitem value="Condição" url="#" />
+                <p:menuitem value="Fabricante" url="#" />
+                <p:menuitem value="Modelo" url="#" />
+                <p:menuitem value="Data da compra" url="#" />
+                <p:menuitem value="Preço" url="#" />
+            </p:submenu>
+             <p:submenu label="Antenas">
+                <p:menuitem value="Número" url="#" />
+                <p:menuitem value="Nome" url="#" />
+            </p:submenu>
+             <p:submenu label="Sensores">
+                <p:menuitem value="Nome" url="#" />
+                <p:menuitem value="Tempo de reação" url="#" />
+                <p:menuitem value="Tempo de leitura" url="#" />
+            </p:submenu>
+             <p:submenu label="Fabricantes">
+                <p:menuitem value="Nome" url="#" />
+                <p:menuitem value="CNPJ" url="#" />
+            </p:submenu>
+             <p:submenu label="Consignadores">
+                <p:menuitem value="Nome" url="#" />
+                <p:menuitem value="CNPJ" url="#" />
+            </p:submenu>
+             <p:submenu label="Níveis">
+                <p:menuitem value="Nível 1" url="#" />
+                <p:menuitem value="Nível 2" url="#" />
+                <p:menuitem value="Nível 3" url="#" />
+                <p:menuitem value="Nível 4" url="#" />
+                <p:menuitem value="Nível 5" url="#" />
+            </p:submenu>
+           	 <p:submenu label="RFID">
+                <p:menuitem value="Nome" url="#" />
+                <p:menuitem value="Fabricante" url="#" />
+                <p:menuitem value="Modelo" url="#" />
+            </p:submenu>
+    </p:column>
+	</p:submenu>
+	<p:submenu label="Relatórios" icon="ui-icon-list">	
+	<p:column>
+            <p:submenu label="Parciais">
+                <p:menuitem value="Objetos Inteligentes" url="#" />
+                <p:menuitem value="Antenas" url="#" />
+                <p:menuitem value="Fabricantes" url="#" />
+                <p:menuitem value="Consignadores" url="#" />
+                <p:menuitem value="Sensores" url="#" />
+                <p:menuitem value="RFID" url="#" />
+                <p:menuitem value="Níveis" url="#" />
+            </p:submenu>
+            <p:submenu label="Completos">
+                <p:menuitem value="Todos os dados" url="#" />
+            </p:submenu>    
+    </p:column>
+	</p:submenu>	
+	<p:submenu label="Quit" icon="ui-icon-close">	
+	<p:column>
+            <p:submenu label="Desconectar">
+              	<p:menuitem value="Sair" url="#" />
+            </p:submenu>  
+    </p:column>
+	</p:submenu>			
+	</p:megaMenu>
+	</div>
+	<div align="center">	
+	<h2>Leitor RFID</h2>
+	</div>
+	<div align="center">
+		<IFRAME src="/project/index.jsp" width="500" height="400"></IFRAME> 
+	</div>
+	</h:form>
+	<br/>
+	<br/>
+	<br/>
+	<div>
+	<ui:include src="Footer.xhtml"></ui:include>
+	</div>
+</h:body>
+</html>
