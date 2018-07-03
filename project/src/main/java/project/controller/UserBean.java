@@ -11,7 +11,6 @@ import javax.faces.model.SelectItem;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import javax.persistence.Query;
 
 import project.model.DepartmentType;
 import project.model.User;
@@ -30,6 +29,8 @@ public class UserBean implements Serializable {
 	private User user = new User();
 	
 	private User userLogged;
+	
+	private List<User> usersList;
 	
 	private List<User> users;
 	
@@ -74,10 +75,21 @@ public class UserBean implements Serializable {
 		return "teste";
 	}
 	
+	public List<User> getUsersList(){
+		if(this.usersList==null) {
+		EntityManager em = JpaUtil.getEntityManager();
+		TypedQuery<User> q = em.createNamedQuery(User.findAll, User.class);
+		this.usersList = q.getResultList();
+		em.close();
+		}
+			return usersList;
+	}
+	
 	public List<User> getUsers(){
 		if(this.users==null) {
 		EntityManager em = JpaUtil.getEntityManager();
-		TypedQuery<User> q = em.createNamedQuery(User.findAll, User.class);
+		TypedQuery<User> q = em.createNamedQuery(User.findByName, User.class);
+		q.setParameter("name", user.getName());
 		this.users = q.getResultList();
 		em.close();
 		}
